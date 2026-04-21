@@ -1,6 +1,7 @@
 pipeline {
 agent any
 
+
 environment {
     DOCKER_IMAGE = "dawr1234/node-app"
     TAG = "${BUILD_NUMBER}"
@@ -16,7 +17,10 @@ stages {
 
     stage('Build Docker Image') {
         steps {
-            sh 'docker build -t $DOCKER_IMAGE:$TAG .'
+            sh '''
+            docker logout || true
+            docker build -t $DOCKER_IMAGE:$TAG .
+            '''
         }
     }
 
@@ -35,5 +39,6 @@ stages {
         }
     }
 }
+
 
 }
