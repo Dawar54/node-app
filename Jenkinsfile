@@ -3,7 +3,7 @@ agent any
 
 
 environment {
-    DOCKER_IMAGE = "dawr1234/node-app"
+    DOCKER_IMAGE = "dawar1234/node-app"
     TAG = "${BUILD_NUMBER}"
 }
 
